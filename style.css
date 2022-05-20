@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin-top: 75px;
+    height: 100vh;
+    display: flex;
+    background-color: rgb(17, 212, 212);
+    justify-content: center;
+}
+
+.memory-game{
+    height: 600px;
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.card{
+    height: calc(33% - 10px);
+    width: calc(25% - 10px);
+    margin: 5px;
+    position: relative;
+    box-shadow: 1px 1px 1px rgb(1, 1, 1, .3 );
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d;  /*não deuxa o elemento ficar achatado no plano*/
+    transition: transform .9s ;
+}
+
+.card img{
+    padding: 10px;
+}
+
+.card:active{
+    transform: scale(0.97);
+    transition: transform .3s;
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: white;
+    backface-visibility: hidden;
+}
+
+.card-front{
+    transform: rotateY(180deg);
+}
+
+.card.flip{
+    transform: rotateY(180deg);
+}
+
+
+footer{
+    color: white;
+    background-color: rgb(63, 33, 33);
+    height: 40px;
+    width: 100%;
+    bottom: 0px;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
